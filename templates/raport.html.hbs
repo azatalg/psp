@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport Statystyczny</title>
+    <style>
+        @page { margin: 1.5cm; size: A4 portrait; }
+
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; color: #2c3e50; line-height: 1.6; }
+        h1 { text-align: center; color: #1a252f; border-bottom: 2px solid #aa82c8; padding-bottom: 10px; font-size: 1.8em; }
+        h2 { color: #2c3e50; margin-top: 30px; border-bottom: 1px solid #ecf0f1; padding-bottom: 5px; font-size: 1.4em;}
+        h3 { color: #34495e; margin-top: 20px; font-size: 1.1em;}
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { border: 1px solid #e0e0e0; padding: 10px; text-align: center; }
+        th { background-color: #f8f9fa; font-weight: bold; }
+        tr:nth-child(even) { background-color: #fafbfc; }
+
+        .flex-container { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .flex-container img { width: 49%; border-radius: 6px; border: 1px solid #eee; box-shadow: 1px 2px 6px rgba(0,0,0,0.1); }
+
+        .img-full { width: 75%; display: block; margin: 10px auto 25px auto; border-radius: 6px; box-shadow: 1px 2px 6px rgba(0,0,0,0.1); }
+
+        blockquote { border-left: 5px solid #aa82c8; background: #fdfbfd; padding: 15px; margin: 20px 0; color: #555; }
+        blockquote em { color: #666; }
+
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+
+<h1>Lista nr 1, Zad. 1</h1>
+
+<h2>1. Podstawowe Statystyki Opisowe (Ogółem)</h2>
+<p>Badana próba liczy <strong>{{n_total}}</strong> uczniów siódmej klasy. Poniższa tabela prezentuje zestawienie podstawowych statystyk dla zmiennych ilościowych: Średniej Ocen (ŚrOc), IQ oraz punktacji w teście psychologicznym (PH).</p>
+
+<table>
+    <tr>
+        <th>Statystyka</th><th>ŚrOc</th><th>IQ</th><th>PH</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{sroc_mean}}</td><td>{{iq_mean}}</td><td>{{ph_mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{sroc_median}}</td><td>{{iq_median}}</td><td>{{ph_median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{sroc_min}}</td><td>{{iq_min}}</td><td>{{ph_min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{sroc_max}}</td><td>{{iq_max}}</td><td>{{ph_max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{sroc_q1}}</td><td>{{iq_q1}}</td><td>{{ph_q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{sroc_q3}}</td><td>{{iq_q3}}</td><td>{{ph_q3}}</td></tr>
+    <tr><td><strong>Wariancja (z próby)</strong></td><td>{{sroc_var}}</td><td>{{iq_var}}</td><td>{{ph_var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{sroc_std}}</td><td>{{iq_std}}</td><td>{{ph_std}}</td></tr>
+    <tr><td><strong>Wsp. zmienności (CV)</strong></td><td>{{sroc_cv}}%</td><td>{{iq_cv}}%</td><td>{{ph_cv}}%</td></tr>
+</table>
+
+<blockquote>
+    <strong>Wnioski z obliczonych statystyk (Zad. 1a):</strong><br>
+    <em>[Bedą wnioski kiedyś. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>2. Wizualizacja Danych (Histogramy i Boxploty)</h2>
+<p>Poniższe wykresy prezentują rozkłady badanych cech. Dla zachowania czytelności, obok histogramu prezentującego rozkład częstości, umieszczono odpowiadający mu wykres ramkowy.</p>
+
+<h3>Zmienna: Rozkład IQ</h3>
+<div class="flex-container">
+    <img src="{{hist_iq_path}}" alt="Histogram IQ">
+    <img src="{{boxplot_iq_path}}" alt="Boxplot IQ">
+</div>
+
+<h3>Zmienna: Średnia Ocen (ŚrOc)</h3>
+<div class="flex-container">
+    <img src="{{hist_sroc_path}}" alt="Histogram ŚrOc">
+    <img src="{{boxplot_sroc_path}}" alt="Boxplot ŚrOc">
+</div>
+
+<h3>Zmienna: Punktacja Psychologiczna (PH)</h3>
+<div class="flex-container">
+    <img src="{{hist_ph_path}}" alt="Histogram PH">
+    <img src="{{boxplot_ph_path}}" alt="Boxplot PH">
+</div>
+
+<blockquote>
+    <strong>Wnioski na podstawie wykresów (Zad. 1b):</strong><br>
+    <em>[Kiedyś będą wnioski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>3. Porównanie: Chłopcy vs Dziewczęta</h2>
+<p>Poniżej zestawiono wyniki z podziałem na płeć badanych uczniów.</p>
+
+<table>
+    <tr>
+        <th>Statystyka</th><th>IQ (Chłopcy)</th><th>IQ (Dziewczęta)</th><th>ŚrOc (Chłopcy)</th><th>ŚrOc (Dziewczęta)</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{iq_mean_b}}</td><td>{{iq_mean_g}}</td><td>{{sroc_mean_b}}</td><td>{{sroc_mean_g}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{iq_median_b}}</td><td>{{iq_median_g}}</td><td>{{sroc_median_b}}</td><td>{{sroc_median_g}}</td></tr>
+</table>
+
+<h3>Wykresy Porównawcze</h3>
+<div class="flex-container">
+    <img src="{{boxplot_iq_gender_path}}" alt="Porównanie IQ">
+    <img src="{{boxplot_sroc_gender_path}}" alt="Porównanie ŚrOc">
+</div>
+
+<img src="{{boxplot_ph_gender_path}}" class="img-full" alt="Porównanie PH" style="width: 60%;">
+
+<blockquote>
+    <strong>Porównanie wyników (Zad. 1c):</strong><br>
+    <em>[Będzie porównanie. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>4. Wpływ liczby klas na histogram (Zad. 1d)</h2>
+<p>Analiza dla wybranej zmiennej (<strong>IQ</strong>) przy różnej szerokości przedziałów klasowych.</p>
+
+<h3>Zbyt mało klas (Liczba klas: {{bins_few}})</h3>
+<p>Zamazuje to strukturę danych, tracimy cenne informacje o rzeczywistym kształcie rozkładu.</p>
+<img src="{{hist_iq_few_path}}" class="img-full" alt="Histogram - mało klas">
+
+<h3>Optymalna liczba klas (Liczba klas: {{bins_opt}})</h3>
+<p>Wyliczona na podstawie Reguły Sturgesa. Najlepiej oddaje charakterystykę badanej grupy.</p>
+<img src="{{hist_iq_opt_path}}" class="img-full" alt="Histogram - optymalnie">
+
+<div class="page-break"></div>
+
+<h3>Zbyt dużo klas (Liczba klas: {{bins_many}})</h3>
+<p>Powoduje poszarpanie wykresu (tzw. szum informacyjny), pojawiają się puste luki między słupkami.</p>
+<img src="{{hist_iq_many_path}}" class="img-full" alt="Histogram - dużo klas">
+
+<blockquote>
+    <strong>Wniosek:</strong><br>
+    <em>[Kiedyś będą wnioski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
+</blockquote>
+
+</body>
+</html>
