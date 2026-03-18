@@ -1,4 +1,6 @@
-#[derive(Debug, Clone)]
+use serde::{Serialize, Deserialize};
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SummaryStats {
     pub n: usize,
     pub mean: f64,
@@ -159,4 +161,45 @@ pub fn summarize(data: &[f64]) -> SummaryStats {
         iqr: iqr(q1, q3),
         cv_sample: cv_sample(data),
     }
+}
+
+pub fn normalize_means(means: &[f64], mu: f64, sigma: f64, n: usize) -> Vec<f64> {
+    let denom = sigma / (n as f64).sqrt();
+    means.iter().map(|x| (x - mu) / denom).collect()
+}
+
+pub fn means_for_ns<F>(ns: &[usize], sampler: F) -> Vec<(usize, f64)>
+where
+    F: Fn(usize) -> Vec<f64>,
+{
+    ns.iter()
+        .map(|&n| {
+            let sample = sampler(n);
+            (n, mean(&sample))
+        })
+        .collect()
+}
+
+pub fn convergence_series<F>(max_n: usize, sampler: F) -> Vec<(f64, f64)>
+where
+    F: Fn(usize) -> Vec<f64>,
+{
+    (1..=max_n)
+        .map(|n| {
+            let sample = sampler(n);
+            (n as f64, mean(&sample))
+        })
+        .collect()
+}
+
+pub fn repeated_sample_means<F>(n: usize, reps: usize, sampler: F) -> Vec<f64>
+where
+    F: Fn(usize) -> Vec<f64>,
+{
+    (0..reps)
+        .map(|_| {
+            let sample = sampler(n);
+            mean(&sample)
+        })
+        .collect()
 }

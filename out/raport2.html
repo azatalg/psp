@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport Statystyczny</title>
+    <style>
+        @page { margin: 1.5cm; size: A4 portrait; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a252f;
+            border-bottom: 2px solid #aa82c8;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 5px;
+            font-size: 1.4em;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flex-container img {
+            width: 49%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .img-full {
+            width: 75%;
+            display: block;
+            margin: 10px auto 25px auto;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .plot-caption {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        blockquote {
+            border-left: 5px solid #aa82c8;
+            background: #fdfbfd;
+            padding: 15px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        blockquote em {
+            color: #666;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .small-note {
+            font-size: 12px;
+        }
+
+        .section-text {
+            margin: 10px 0 14px 0;
+        }
+
+        .single-plot {
+            margin: 15px 0 22px 0;
+        }
+
+        .conclusion-title {
+            font-weight: bold;
+        }
+
+        .plot-pair {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+        }
+
+        .plot-item {
+            width: 49%;
+            text-align: center;
+        }
+
+        .plot-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .plot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2%;
+            margin-bottom: 20px;
+        }
+
+        .plot-grid.columns-2 .plot-grid-item {
+            width: 49%;
+        }
+
+        .plot-grid.columns-3 .plot-grid-item {
+            width: 32%;
+        }
+
+        .plot-grid.columns-4 .plot-grid-item {
+            width: 23.5%;
+        }
+
+        .plot-grid-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-grid-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Raport Statystyczny nr 1</h1>
+
+
+    <p class="plot-caption">Autor: Łukasz Stodółka</p>
+
+
+    <h2>Podstawowe statystyki opisowe (Zad. 1a)</h2>
+
+
+            <p class="section-text">Badana próba liczy <strong>78</strong> uczniów siódmej klasy, w tym <strong>46</strong> chłopców oraz <strong>32</strong> dziewcząt. Poniższa tabela przedstawia podstawowe statystyki opisowe dla zmiennych ilościowych: średniej ocen (<strong>ŚrOc</strong>), ilorazu inteligencji (<strong>IQ</strong>) oraz punktacji w teście psychologicznym (<strong>PH</strong>).</p>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>ŚrOc</th>
+                        <th>IQ</th>
+                        <th>PH</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>7.45</td>
+                            <td>108.92</td>
+                            <td>56.96</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>7.83</td>
+                            <td>110.00</td>
+                            <td>59.50</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>0.53</td>
+                            <td>72.00</td>
+                            <td>20.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>10.76</td>
+                            <td>136.00</td>
+                            <td>80.00</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl dolny (Q1)</td>
+                            <td>6.23</td>
+                            <td>103.00</td>
+                            <td>51.00</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl górny (Q3)</td>
+                            <td>9.00</td>
+                            <td>118.00</td>
+                            <td>66.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja (z próby)</td>
+                            <td>4.41</td>
+                            <td>173.47</td>
+                            <td>154.06</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie standardowe</td>
+                            <td>2.10</td>
+                            <td>13.17</td>
+                            <td>12.41</td>
+                    </tr>
+                    <tr>
+                            <td>Współczynnik zmienności (CV)</td>
+                            <td>28.20%</td>
+                            <td>12.09%</td>
+                            <td>21.79%</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Na podstawie przedstawionych statystyk można sformułować jedynie ogólne wnioski dotyczące rozkładu badanych zmiennych. Średni poziom <strong>IQ</strong> badanych uczniów wynosi <strong>108.92</strong>, co jest wartością wyższą od średniej populacyjnej przyjmowanej na poziomie <strong>100</strong> punktów. Dla wszystkich trzech zmiennych (<strong>ŚrOc</strong>, <strong>IQ</strong> oraz <strong>PH</strong>) <strong>mediana jest wyższa od średniej</strong>, co może sugerować lekką asymetrię rozkładów i wpływ pojedynczych niższych wartości na obniżenie średniej. Analizując kwartyle można zauważyć, że połowa uczniów osiąga średnią ocen w przedziale od <strong>6.23</strong> do <strong>9.00</strong>, natomiast dla <strong>IQ</strong> połowa wyników mieści się w przedziale <strong>103.00–118.00</strong>. W przypadku zmiennej <strong>PH</strong> połowa uczniów uzyskała wyniki w przedziale <strong>51.00–66.00</strong>, co wskazuje na umiarkowane zróżnicowanie wyników w tej zmiennej.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Wizualizacja danych - histogramy i boxploty (Zad. 1b)</h2>
+
+
+            <p class="section-text">Poniższe wykresy przedstawiają rozkłady badanych zmiennych ilościowych oraz pozwalają ocenić ich skupienie, asymetrię i obecność obserwacji odstających.</p>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+            <h3>Zmienna: <strong>IQ</strong></h3>
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="iq_overall_hist.png" alt="Rozkład IQ">
+                    <p class="plot-caption"><em>Rozkład IQ</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="iq_overall_box.png" alt="Wykres ramkowy IQ">
+                    <p class="plot-caption"><em>Wykres ramkowy IQ</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+            <h3>Zmienna: <strong>Średnia ocen (ŚrOc)</strong></h3>
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="sroc_overall_hist.png" alt="Rozkład Średnia ocen (ŚrOc)">
+                    <p class="plot-caption"><em>Rozkład Średnia ocen (ŚrOc)</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="sroc_overall_box.png" alt="Wykres ramkowy Średnia ocen (ŚrOc)">
+                    <p class="plot-caption"><em>Wykres ramkowy Średnia ocen (ŚrOc)</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+            <h3>Zmienna: <strong>Punktacja psychologiczna (PH)</strong></h3>
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="ph_overall_hist.png" alt="Rozkład Punktacja psychologiczna (PH)">
+                    <p class="plot-caption"><em>Rozkład Punktacja psychologiczna (PH)</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="ph_overall_box.png" alt="Wykres ramkowy Punktacja psychologiczna (PH)">
+                    <p class="plot-caption"><em>Wykres ramkowy Punktacja psychologiczna (PH)</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Na podstawie histogramów można zauważyć, że większość obserwacji dla wszystkich trzech zmiennych skupia się w określonych przedziałach wartości. W przypadku <strong>IQ</strong> największa liczba wyników znajduje się w przedziale około <strong>100–120</strong>, co wskazuje na stosunkowo skoncentrowany rozkład. Histogram dla zmiennej <strong>ŚrOc</strong> pokazuje, że większość uczniów osiąga średnie oceny w przedziale około <strong>6–9</strong>, natomiast niższe wartości pojawiają się znacznie rzadziej. W przypadku zmiennej <strong>PH</strong> największa liczba obserwacji mieści się w przedziale około <strong>50–70</strong> punktów, co wskazuje na skupienie wyników w tej części skali.<br><br>Wykresy ramkowe pokazują również obecność <strong>kilku obserwacji odstających</strong>, występujących głównie po stronie niższych wartości. Oznacza to, że w badanej próbie nie ma wyraźnych wartości skrajnie wysokich, pojawiają się natomiast pojedyncze jednostki uzyskujące wyniki niższe od większości grupy. Poza tym większość obserwacji znajduje się w stosunkowo wąskich przedziałach wartości, co sugeruje <strong>umiarkowaną spójność badanej próby</strong>.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Porównanie chłopców i dziewcząt (Zad. 1c)</h2>
+
+
+
+
+
+
+
+
+        
+            <h3><strong>IQ</strong></h3>
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Chłopcy</th>
+                        <th>Dziewczęta</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>111.35</td>
+                            <td>105.44</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>111.00</td>
+                            <td>106.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>77.00</td>
+                            <td>72.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>136.00</td>
+                            <td>132.00</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl dolny (Q1)</td>
+                            <td>106.00</td>
+                            <td>97.00</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl górny (Q3)</td>
+                            <td>119.00</td>
+                            <td>114.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>142.85</td>
+                            <td>202.25</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie standardowe</td>
+                            <td>11.95</td>
+                            <td>14.22</td>
+                    </tr>
+                    <tr>
+                            <td>Współczynnik zmienności (CV)</td>
+                            <td>10.73%</td>
+                            <td>13.49%</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="iq_gender_chłopcy_hist.png" alt="Rozkład IQ - Chłopcy">
+                        <p class="plot-caption"><em>Rozkład IQ - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="iq_gender_chłopcy_box.png" alt="Wykres ramkowy IQ - Chłopcy">
+                        <p class="plot-caption"><em>Wykres ramkowy IQ - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="iq_gender_dziewczęta_hist.png" alt="Rozkład IQ - Dziewczęta">
+                        <p class="plot-caption"><em>Rozkład IQ - Dziewczęta</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="iq_gender_dziewczęta_box.png" alt="Wykres ramkowy IQ - Dziewczęta">
+                        <p class="plot-caption"><em>Wykres ramkowy IQ - Dziewczęta</em></p>
+                    </div>
+            </div>
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Średnia ocen (ŚrOc)</strong></h3>
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Chłopcy</th>
+                        <th>Dziewczęta</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>7.28</td>
+                            <td>7.68</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>7.88</td>
+                            <td>7.83</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>0.53</td>
+                            <td>3.41</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>10.76</td>
+                            <td>10.70</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl dolny (Q1)</td>
+                            <td>6.17</td>
+                            <td>6.32</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl górny (Q3)</td>
+                            <td>9.17</td>
+                            <td>8.97</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>5.50</td>
+                            <td>2.87</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie standardowe</td>
+                            <td>2.34</td>
+                            <td>1.69</td>
+                    </tr>
+                    <tr>
+                            <td>Współczynnik zmienności (CV)</td>
+                            <td>32.20%</td>
+                            <td>22.05%</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="sroc_gender_chłopcy_hist.png" alt="Rozkład Średnia ocen (ŚrOc) - Chłopcy">
+                        <p class="plot-caption"><em>Rozkład Średnia ocen (ŚrOc) - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="sroc_gender_chłopcy_box.png" alt="Wykres ramkowy Średnia ocen (ŚrOc) - Chłopcy">
+                        <p class="plot-caption"><em>Wykres ramkowy Średnia ocen (ŚrOc) - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="sroc_gender_dziewczęta_hist.png" alt="Rozkład Średnia ocen (ŚrOc) - Dziewczęta">
+                        <p class="plot-caption"><em>Rozkład Średnia ocen (ŚrOc) - Dziewczęta</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="sroc_gender_dziewczęta_box.png" alt="Wykres ramkowy Średnia ocen (ŚrOc) - Dziewczęta">
+                        <p class="plot-caption"><em>Wykres ramkowy Średnia ocen (ŚrOc) - Dziewczęta</em></p>
+                    </div>
+            </div>
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Punktacja psychologiczna (PH)</strong></h3>
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Chłopcy</th>
+                        <th>Dziewczęta</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>57.85</td>
+                            <td>55.69</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>59.00</td>
+                            <td>60.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>20.00</td>
+                            <td>21.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>80.00</td>
+                            <td>72.00</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl dolny (Q1)</td>
+                            <td>51.00</td>
+                            <td>51.50</td>
+                    </tr>
+                    <tr>
+                            <td>Kwartyl górny (Q3)</td>
+                            <td>67.00</td>
+                            <td>64.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>153.55</td>
+                            <td>156.93</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie standardowe</td>
+                            <td>12.39</td>
+                            <td>12.53</td>
+                    </tr>
+                    <tr>
+                            <td>Współczynnik zmienności (CV)</td>
+                            <td>21.42%</td>
+                            <td>22.50%</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="ph_gender_chłopcy_hist.png" alt="Rozkład Punktacja psychologiczna (PH) - Chłopcy">
+                        <p class="plot-caption"><em>Rozkład Punktacja psychologiczna (PH) - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="ph_gender_chłopcy_box.png" alt="Wykres ramkowy Punktacja psychologiczna (PH) - Chłopcy">
+                        <p class="plot-caption"><em>Wykres ramkowy Punktacja psychologiczna (PH) - Chłopcy</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="ph_gender_dziewczęta_hist.png" alt="Rozkład Punktacja psychologiczna (PH) - Dziewczęta">
+                        <p class="plot-caption"><em>Rozkład Punktacja psychologiczna (PH) - Dziewczęta</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="ph_gender_dziewczęta_box.png" alt="Wykres ramkowy Punktacja psychologiczna (PH) - Dziewczęta">
+                        <p class="plot-caption"><em>Wykres ramkowy Punktacja psychologiczna (PH) - Dziewczęta</em></p>
+                    </div>
+            </div>
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Wykresy porównawcze</strong></h3>
+
+
+
+
+
+            <div class="plot-grid columns-1">
+                    <div class="plot-grid-item">
+                        <img src="iq_gender_compare.png" alt="IQ (Chłopcy vs Dziewczęta)">
+                        <p class="plot-caption"><em>IQ (Chłopcy vs Dziewczęta)</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="sroc_gender_compare.png" alt="Średnia ocen (ŚrOc) (Chłopcy vs Dziewczęta)">
+                        <p class="plot-caption"><em>Średnia ocen (ŚrOc) (Chłopcy vs Dziewczęta)</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="ph_gender_compare.png" alt="Punktacja psychologiczna (PH) (Chłopcy vs Dziewczęta)">
+                        <p class="plot-caption"><em>Punktacja psychologiczna (PH) (Chłopcy vs Dziewczęta)</em></p>
+                    </div>
+            </div>
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Na podstawie obliczonych statystyk oraz wykresów można zauważyć kilka różnic między grupą <strong>chłopców</strong> i <strong>dziewcząt</strong>. W przypadku <strong>IQ</strong> wyższe wartości średniej i mediany uzyskali <strong>chłopcy</strong> (średnia: <strong>111.35</strong>, mediana: <strong>111.00</strong>) niż <strong>dziewczęta</strong> (średnia: <strong>105.44</strong>, mediana: <strong>106.00</strong>). Jednocześnie u dziewcząt występuje <strong>większe zróżnicowanie wyników IQ</strong>, o czym świadczą wyższe wartości wariancji, odchylenia standardowego oraz współczynnika zmienności. Boxploty pokazują ponadto, że w obu grupach występują <strong>pojedyncze niższe obserwacje odstające</strong>, przy czym u dziewcząt rozkład jest bardziej rozproszony.<br><br>W przypadku <strong>średniej ocen (ŚrOc)</strong> sytuacja jest odwrotna - nieco wyższą średnią uzyskały <strong>dziewczęta</strong> (<strong>7.68</strong>) niż <strong>chłopcy</strong> (<strong>7.28</strong>). Mediany obu grup są jednak bardzo zbliżone (<strong>7.83</strong> dla dziewcząt i <strong>7.88</strong> dla chłopców), co oznacza, że typowy poziom ocen jest podobny, lecz w grupie chłopców pojawia się <strong>większy rozrzut wyników</strong>. Potwierdzają to wyraźnie większe wartości wariancji, odchylenia standardowego i współczynnika zmienności u chłopców. Dodatkowo u chłopców występuje bardzo niska wartość minimalna (<strong>0.53</strong>), która może być obserwacją odstającą i obniżać średnią tej grupy.<br><br>W przypadku <strong>punktacji psychologicznej (PH)</strong> różnice między grupami są niewielkie. Chłopcy osiągnęli nieco wyższą średnią (<strong>57.85</strong>) niż dziewczęta (<strong>55.69</strong>), natomiast mediany są bardzo podobne (<strong>59.00</strong> i <strong>60.00</strong>). Zmienność wyników PH w obu grupach jest zbliżona, choć minimalnie większa u dziewcząt. Na wykresach ramkowych widać również pojedyncze niższe obserwacje odstające w obu grupach, ale ogólny rozkład punktacji psychologicznej jest podobny.<br><br>Podsumowując, <strong>chłopcy uzyskali wyższe wyniki IQ</strong>, <strong>dziewczęta osiągnęły nieco wyższą średnią ocen</strong>, natomiast w przypadku <strong>PH</strong> różnice są niewielkie. Największe różnice między grupami dotyczą więc <strong>poziomu IQ</strong> oraz <strong>zmienności wyników szkolnych</strong>.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Wpływ liczby klas na histogram (Zad. 1d)</h2>
+
+
+
+
+
+
+
+
+        
+            <h3>Zbyt mało klas (liczba klas: <strong>3</strong>)</h3>
+
+
+            <p class="section-text">Zbyt mała liczba klas prowadzi do nadmiernego uproszczenia wykresu. Histogram traci szczegóły, przez co rzeczywisty kształt rozkładu staje się słabiej widoczny.</p>
+
+
+
+
+
+
+        
+
+
+
+            <div class="single-plot">
+                <img src="grades_iq_bins_few.png" class="img-full" alt="Rozkład IQ (Zbyt mało klas)">
+                <p class="plot-caption"><em>Rozkład IQ (Zbyt mało klas)</em></p>
+            </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+            <h3>Optymalna liczba klas (liczba klas: <strong>8</strong>)</h3>
+
+
+            <p class="section-text">W tej wersji wykorzystano liczbę klas wyznaczoną na podstawie <strong>reguły Sturgesa</strong>. Taki dobór pozwala zachować równowagę pomiędzy czytelnością wykresu a ilością informacji o rozkładzie danych.</p>
+
+
+
+
+
+
+        
+
+
+
+            <div class="single-plot">
+                <img src="grades_iq_bins_opt.png" class="img-full" alt="Rozkład IQ (Optymalnie)">
+                <p class="plot-caption"><em>Rozkład IQ (Optymalnie)</em></p>
+            </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3>Zbyt dużo klas (liczba klas: <strong>30</strong>)</h3>
+
+
+            <p class="section-text">Zbyt duża liczba klas powoduje „poszarpanie” histogramu i zbyt dużą ilość słupków. Na wykresie pojawiają się przypadkowe wahania oraz puste luki, które utrudniają ocenę rzeczywistego rozkładu zmiennej.</p>
+
+
+
+
+
+
+        
+
+
+
+            <div class="single-plot">
+                <img src="grades_iq_bins_many.png" class="img-full" alt="Rozkład IQ (Zbyt dużo klas)">
+                <p class="plot-caption"><em>Rozkład IQ (Zbyt dużo klas)</em></p>
+            </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Wybór liczby klas ma istotny wpływ na interpretację histogramu. <strong>Zbyt mała liczba klas</strong> nadmiernie upraszcza obraz danych, natomiast <strong>zbyt duża</strong> eksponuje przypadkowy szum i utrudnia odczytanie ogólnych tendencji. Spośród przedstawionych wariantów najbardziej użyteczny jest histogram z liczbą klas wyznaczoną według <strong>reguły Sturgesa</strong>, ponieważ najlepiej zachowuje równowagę między przejrzystością wykresu a dokładnością odwzorowania rozkładu danych.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Struktura zarobków mieszkańców USA w roku 2000 (Zad. 2a)</h2>
+
+
+            <p class="section-text">Badana próba zawiera <strong>55899</strong> obserwacji. Analizie poddano roczne zarobki respondentów w <strong>dolarach amerykańskich</strong>.</p>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Wartość</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>37864.61</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>29717.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>-24998.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>425510.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q1</td>
+                            <td>17000.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q3</td>
+                            <td>46505.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>1307402975.22</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie std.</td>
+                            <td>36158.03</td>
+                    </tr>
+                    <tr>
+                            <td>CV (%)</td>
+                            <td>95.49</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="overall_income_hist.png" alt="Rozkład Zarobki">
+                    <p class="plot-caption"><em>Rozkład Zarobki</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="overall_income_box.png" alt="Wykres ramkowy Zarobki">
+                    <p class="plot-caption"><em>Wykres ramkowy Zarobki</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Rozkład zarobków ma charakter <strong>asymetryczny prawostronnie</strong>, czyli <strong>skośny prawostronnie</strong>, co oznacza, że większość osób osiąga relatywnie niższe dochody, natomiast niewielka grupa uzyskuje bardzo wysokie zarobki. W konsekwencji <strong>średnia jest większa od mediany</strong>, co wskazuje na wpływ wysokich wartości odstających. Histogram ujawnia koncentrację obserwacji w dolnych przedziałach oraz <strong>długi ogon po stronie wyższych dochodów</strong>. W danych mogą występować również <strong>ujemne wartości dochodów</strong>, które mogą wynikać np. ze strat działalności gospodarczej lub specyfiki sposobu raportowania dochodów.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Porównanie zarobków w zależności od poziomu wykształcenia (Zad. 2b)</h2>
+
+
+            <p class="section-text">W tej części porównano poziom zarobków w <strong>sześciu grupach wykształcenia</strong>: od wykształcenia podstawowego do wyższego magisterskiego.</p>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Poziom wykształcenia</th>
+                        <th>Średnia</th>
+                        <th>Mediana</th>
+                        <th>Minimum</th>
+                        <th>Maksimum</th>
+                        <th>Q1</th>
+                        <th>Q3</th>
+                        <th>Odch. std.</th>
+                        <th>CV</th>
+                </tr>
+                    <tr>
+                            <td>Podstawowe</td>
+                            <td>18979.58</td>
+                            <td>15765.00</td>
+                            <td>-9999.00</td>
+                            <td>362302.00</td>
+                            <td>10400.00</td>
+                            <td>23835.00</td>
+                            <td>17137.76</td>
+                            <td>90.30%</td>
+                    </tr>
+                    <tr>
+                            <td>Niepełne średnie</td>
+                            <td>21037.41</td>
+                            <td>17011.00</td>
+                            <td>-9999.00</td>
+                            <td>362302.00</td>
+                            <td>10500.00</td>
+                            <td>27000.00</td>
+                            <td>19449.56</td>
+                            <td>92.45%</td>
+                    </tr>
+                    <tr>
+                            <td>Średnie</td>
+                            <td>28646.15</td>
+                            <td>24428.00</td>
+                            <td>-9999.00</td>
+                            <td>425510.00</td>
+                            <td>15000.00</td>
+                            <td>36256.00</td>
+                            <td>23905.37</td>
+                            <td>83.45%</td>
+                    </tr>
+                    <tr>
+                            <td>Niepełne wyższe</td>
+                            <td>34660.74</td>
+                            <td>29500.00</td>
+                            <td>-9999.00</td>
+                            <td>419304.00</td>
+                            <td>18006.50</td>
+                            <td>43511.50</td>
+                            <td>28429.47</td>
+                            <td>82.02%</td>
+                    </tr>
+                    <tr>
+                            <td>Wyższe (licencjat)</td>
+                            <td>49916.61</td>
+                            <td>40072.00</td>
+                            <td>-9999.00</td>
+                            <td>424770.00</td>
+                            <td>25841.00</td>
+                            <td>61250.00</td>
+                            <td>41548.38</td>
+                            <td>83.24%</td>
+                    </tr>
+                    <tr>
+                            <td>Wyższe (magister)</td>
+                            <td>70727.34</td>
+                            <td>55350.00</td>
+                            <td>-24998.00</td>
+                            <td>415928.00</td>
+                            <td>36022.50</td>
+                            <td>83522.00</td>
+                            <td>56859.55</td>
+                            <td>80.39%</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+            <div class="single-plot">
+                <img src="income_education_box.png" class="img-full" alt="Zarobki wg wykształcenia">
+                <p class="plot-caption"><em>Zarobki wg wykształcenia</em></p>
+            </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Zarobki wykazują <strong>wyraźną zależność od poziomu wykształcenia</strong>. Wraz ze wzrostem poziomu edukacji rosną zarówno <strong>średnie</strong>, jak i <strong>mediany</strong> dochodów. Osoby z wykształceniem wyższym osiągają istotnie wyższe dochody niż osoby z niższym poziomem wykształcenia. Jednocześnie w każdej grupie widoczne jest <strong>znaczne zróżnicowanie</strong>, co oznacza, że wykształcenie nie jest jedynym czynnikiem wpływającym na poziom zarobków. W grupach o wyższym wykształceniu częściej występują również <strong>wartości ekstremalne</strong>, co wskazuje na większe możliwości osiągania bardzo wysokich dochodów.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Porównanie zarobków kobiet i mężczyzn (Zad. 2c)</h2>
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Mężczyźni</strong></h3>
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Wartość</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>46489.47</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>36000.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>-24998.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>425510.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q1</td>
+                            <td>22146.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q3</td>
+                            <td>55853.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>1762121910.83</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie std.</td>
+                            <td>41977.64</td>
+                    </tr>
+                    <tr>
+                            <td>CV (%)</td>
+                            <td>90.29</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="men_income_hist.png" alt="Rozkład Zarobki - mężczyźni">
+                    <p class="plot-caption"><em>Rozkład Zarobki - mężczyźni</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="men_income_box.png" alt="Wykres ramkowy Zarobki - mężczyźni">
+                    <p class="plot-caption"><em>Wykres ramkowy Zarobki - mężczyźni</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Kobiety</strong></h3>
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Wartość</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>28422.35</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>23012.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>-9999.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>385068.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q1</td>
+                            <td>13004.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q3</td>
+                            <td>36200.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>639035925.62</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie std.</td>
+                            <td>25279.16</td>
+                    </tr>
+                    <tr>
+                            <td>CV (%)</td>
+                            <td>88.94</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="women_income_hist.png" alt="Rozkład Zarobki - kobiety">
+                    <p class="plot-caption"><em>Rozkład Zarobki - kobiety</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="women_income_box.png" alt="Wykres ramkowy Zarobki - kobiety">
+                    <p class="plot-caption"><em>Wykres ramkowy Zarobki - kobiety</em></p>
+                </div>
+            </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+
+
+
+
+
+
+
+        
+            <h3><strong>Wykres porównawczy</strong></h3>
+
+
+
+            <div class="single-plot">
+                <img src="gender_income_compare.png" class="img-full" alt="Zarobki (Mężczyźni vs Kobiety)">
+                <p class="plot-caption"><em>Zarobki (Mężczyźni vs Kobiety)</em></p>
+            </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Analiza danych wskazuje na różnice w poziomie zarobków między <strong>mężczyznami</strong> a <strong>kobietami</strong>. Mężczyźni osiągają wyższe wartości średnie i mediany (średnia: <strong>46489.47</strong>, mediana: <strong>36000.00</strong>) niż kobiety (średnia: <strong>28422.35</strong>, mediana: <strong>23012.00</strong>). Jednak na podstawie tych danych nie można jednoznacznie stwierdzić istnienia <strong>związku przyczynowego</strong>. Różnice te mogą wynikać z wielu czynników, takich jak <strong>wykształcenie</strong>, <strong>sektor zatrudnienia</strong> czy <strong>struktura rynku pracy</strong>. W związku z tym obserwujemy jedynie <strong>korelację</strong>, a nie dowód bezpośredniego wpływu płci na poziom dochodów.</em>
+            </blockquote>
+
+        
+
+
+
+
+
+
+
+
+            <div class="page-break"></div>
+        
+
+    <h2>Przeciętny zarobek mieszkańców USA w roku 2000 (Zad. 2d)</h2>
+
+
+            <p class="section-text">W celu wyznaczenia „<strong>przeciętnego zarobku</strong>” można rozważyć różne miary tendencji centralnej. Najczęściej stosowane są <strong>średnia arytmetyczna</strong> oraz <strong>mediana</strong>.</p>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Miara</th>
+                        <th>Wartość</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>37864.61</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>29717.00</td>
+                    </tr>
+            </table>
+
+
+        
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Ze względu na <strong>silną asymetrię rozkładu zarobków</strong> oraz obecność <strong>wartości odstających</strong>, średnia arytmetyczna nie jest najlepszą miarą „przeciętnego” dochodu. Znacznie lepszą miarą jest <strong>mediana</strong>, ponieważ jest odporna na wpływ skrajnych wartości. Mediana lepiej oddaje <strong>typowy poziom dochodu większości populacji</strong>, podczas gdy średnia może być zawyżona przez niewielką grupę osób o bardzo wysokich zarobkach.</em>
+            </blockquote>
+
+        
+
+
+</body>
+</html>

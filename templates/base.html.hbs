@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport Statystyczny</title>
+    <style>
+        @page { margin: 1.5cm; size: A4 portrait; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a252f;
+            border-bottom: 2px solid #aa82c8;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 5px;
+            font-size: 1.4em;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flex-container img {
+            width: 49%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .img-full {
+            width: 75%;
+            display: block;
+            margin: 10px auto 25px auto;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .plot-caption {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        blockquote {
+            border-left: 5px solid #aa82c8;
+            background: #fdfbfd;
+            padding: 15px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        blockquote em {
+            color: #666;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .small-note {
+            font-size: 12px;
+        }
+
+        .section-text {
+            margin: 10px 0 14px 0;
+        }
+
+        .single-plot {
+            margin: 15px 0 22px 0;
+        }
+
+        .conclusion-title {
+            font-weight: bold;
+        }
+
+        .plot-pair {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+        }
+
+        .plot-item {
+            width: 49%;
+            text-align: center;
+        }
+
+        .plot-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .plot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2%;
+            margin-bottom: 20px;
+        }
+
+        .plot-grid.columns-2 .plot-grid-item {
+            width: 49%;
+        }
+
+        .plot-grid.columns-3 .plot-grid-item {
+            width: 32%;
+        }
+
+        .plot-grid.columns-4 .plot-grid-item {
+            width: 23.5%;
+        }
+
+        .plot-grid-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-grid-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>{{meta.title}}</h1>
+
+{{#if meta.subtitle}}
+    <p class="plot-caption"><em>{{meta.subtitle}}</em></p>
+{{/if}}
+
+{{#if meta.author}}
+    <p class="plot-caption">Autor: {{meta.author}}</p>
+{{/if}}
+
+{{#if meta.date}}
+    <p class="plot-caption">Data: {{meta.date}}</p>
+{{/if}}
+
+{{#each sections}}
+    <h2>{{title}}</h2>
+
+    {{#each blocks}}
+
+        {{#if (eq type "Text")}}
+            <p class="section-text">{{content}}</p>
+        {{/if}}
+
+        {{#if (eq type "Plot")}}
+            <div class="single-plot">
+                <img src="{{plot.path}}" class="img-full" alt="{{plot.name}}">
+                <p class="plot-caption"><em>{{plot.name}}</em></p>
+            </div>
+        {{/if}}
+
+        {{#if (eq type "PlotPair")}}
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="{{left.path}}" alt="{{left.name}}">
+                    <p class="plot-caption"><em>{{left.name}}</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="{{right.path}}" alt="{{right.name}}">
+                    <p class="plot-caption"><em>{{right.name}}</em></p>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if (eq type "PlotGrid")}}
+            <div class="plot-grid columns-{{columns}}">
+                {{#each plots}}
+                    <div class="plot-grid-item">
+                        <img src="{{path}}" alt="{{name}}">
+                        <p class="plot-caption"><em>{{name}}</em></p>
+                    </div>
+                {{/each}}
+            </div>
+        {{/if}}
+
+        {{#if (eq type "Table")}}
+            <table>
+                <tr>
+                    {{#each headers}}
+                        <th>{{this}}</th>
+                    {{/each}}
+                </tr>
+                {{#each rows}}
+                    <tr>
+                        {{#each this}}
+                            <td>{{this}}</td>
+                        {{/each}}
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if}}
+
+        {{#if (eq type "Conclusion")}}
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>{{content}}</em>
+            </blockquote>
+        {{/if}}
+
+        {{#if (eq type "PageBreak")}}
+            <div class="page-break"></div>
+        {{/if}}
+        
+        {{#if (eq type "Subtitle")}}
+            <h3>{{content}}</h3>
+        {{/if}}
+
+    {{/each}}
+{{/each}}
+
+</body>
+</html>

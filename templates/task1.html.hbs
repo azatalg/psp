@@ -1,0 +1,262 @@
+<h2>Podstawowe statystyki opisowe (Zad. 1a)</h2>
+<p>
+    Badana próba liczy <strong>{{task1.n_total}}</strong> uczniów siódmej klasy, w tym
+    <strong>{{task1.n_boys}}</strong> chłopców oraz <strong>{{task1.n_girls}}</strong> dziewcząt.
+    Poniższa tabela przedstawia podstawowe statystyki opisowe dla zmiennych ilościowych:
+    średniej ocen (<strong>ŚrOc</strong>), ilorazu inteligencji (<strong>IQ</strong>)
+    oraz punktacji w teście psychologicznym (<strong>PH</strong>).
+</p>
+
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>ŚrOc</th>
+        <th>IQ</th>
+        <th>PH</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task1.overall.sroc.stats.mean}}</td><td>{{task1.overall.iq.stats.mean}}</td><td>{{task1.overall.ph.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task1.overall.sroc.stats.median}}</td><td>{{task1.overall.iq.stats.median}}</td><td>{{task1.overall.ph.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task1.overall.sroc.stats.min}}</td><td>{{task1.overall.iq.stats.min}}</td><td>{{task1.overall.ph.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task1.overall.sroc.stats.max}}</td><td>{{task1.overall.iq.stats.max}}</td><td>{{task1.overall.ph.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task1.overall.sroc.stats.q1}}</td><td>{{task1.overall.iq.stats.q1}}</td><td>{{task1.overall.ph.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task1.overall.sroc.stats.q3}}</td><td>{{task1.overall.iq.stats.q3}}</td><td>{{task1.overall.ph.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja (z próby)</strong></td><td>{{task1.overall.sroc.stats.var}}</td><td>{{task1.overall.iq.stats.var}}</td><td>{{task1.overall.ph.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task1.overall.sroc.stats.std}}</td><td>{{task1.overall.iq.stats.std}}</td><td>{{task1.overall.ph.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task1.overall.sroc.stats.cv}}%</td><td>{{task1.overall.iq.stats.cv}}%</td><td>{{task1.overall.ph.stats.cv}}%</td></tr>
+</table>
+
+<blockquote>
+    <strong>Wnioski z obliczonych statystyk (Zad. 1a):</strong><br>
+    <em>
+        Na podstawie przedstawionych statystyk można sformułować jedynie ogólne wnioski dotyczące rozkładu badanych zmiennych.
+        Średni poziom <strong>IQ</strong> badanych uczniów wynosi <strong>{{task1.overall.iq.stats.mean}}</strong>, co jest wartością
+        wyższą od średniej populacyjnej przyjmowanej na poziomie 100 punktów.
+        Dla wszystkich trzech zmiennych (<strong>ŚrOc</strong>, <strong>IQ</strong> oraz <strong>PH</strong>)
+        <strong>mediana jest wyższa od średniej</strong>, co może sugerować lekką asymetrię rozkładów
+        i wpływ pojedynczych niższych wartości na obniżenie średniej.
+        Analizując kwartyle można zauważyć, że połowa uczniów osiąga
+        <strong>średnią ocen w przedziale od {{task1.overall.sroc.stats.q1}} do {{task1.overall.sroc.stats.q3}}</strong>,
+        natomiast dla <strong>IQ</strong> połowa wyników mieści się w przedziale
+        <strong>{{task1.overall.iq.stats.q1}}–{{task1.overall.iq.stats.q3}}</strong>.
+        W przypadku zmiennej <strong>PH</strong> połowa uczniów uzyskała wyniki
+        w przedziale <strong>{{task1.overall.ph.stats.q1}}–{{task1.overall.ph.stats.q3}}</strong>,
+        co wskazuje na umiarkowane zróżnicowanie wyników w tej zmiennej.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Wizualizacja danych - histogramy i boxploty (Zad. 1b)</h2>
+<p>
+    Poniższe wykresy przedstawiają rozkłady badanych zmiennych ilościowych
+    oraz pozwalają ocenić ich skupienie, asymetrię i obecność obserwacji odstających.
+</p>
+
+<h3>Zmienna: IQ</h3>
+<div class="flex-container">
+    <img src="{{task1.overall.iq.plots.hist_path}}" alt="Histogram IQ">
+    <img src="{{task1.overall.iq.plots.boxplot_path}}" alt="Boxplot IQ">
+</div>
+<h3>Zmienna: Średnia ocen (ŚrOc)</h3>
+<div class="flex-container">
+    <img src="{{task1.overall.sroc.plots.hist_path}}" alt="Histogram ŚrOc">
+    <img src="{{task1.overall.sroc.plots.boxplot_path}}" alt="Boxplot ŚrOc">
+</div>
+
+<h3>Zmienna: Punktacja psychologiczna (PH)</h3>
+<div class="flex-container">
+    <img src="{{task1.overall.ph.plots.hist_path}}" alt="Histogram PH">
+    <img src="{{task1.overall.ph.plots.boxplot_path}}" alt="Boxplot PH">
+</div>
+
+<div class="page-break"></div>
+
+<blockquote>
+    <strong>Wnioski na podstawie wykresów (Zad. 1b):</strong><br>
+    <em>
+        Na podstawie histogramów można zauważyć, że większość obserwacji dla wszystkich trzech zmiennych
+        skupia się w określonych przedziałach wartości. W przypadku <strong>IQ</strong> największa liczba wyników
+        znajduje się w przedziale około <strong>100–120</strong>, co wskazuje na stosunkowo skoncentrowany rozkład.
+        Histogram dla zmiennej <strong>ŚrOc</strong> pokazuje, że większość uczniów osiąga średnie oceny
+        w przedziale około <strong>6–9</strong>, natomiast niższe wartości pojawiają się znacznie rzadziej.
+        W przypadku zmiennej <strong>PH</strong> największa liczba obserwacji mieści się w przedziale około
+        <strong>50–70 punktów</strong>, co wskazuje na skupienie wyników w tej części skali.
+        <br><br>
+        Wykresy ramkowe pokazują również obecność <strong>kilku obserwacji odstających</strong>,
+        występujących głównie po stronie niższych wartości. Oznacza to, że w badanej próbie nie ma wyraźnych
+        wartości skrajnie wysokich, pojawiają się natomiast pojedyncze jednostki uzyskujące wyniki
+        niższe od większości grupy. Poza tym większość obserwacji znajduje się w stosunkowo wąskich
+        przedziałach wartości, co sugeruje umiarkowaną spójność badanej próby.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Porównanie chłopców i dziewcząt (Zad. 1c)</h2>
+
+<h3>IQ</h3>
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Chłopcy</th>
+        <th>Dziewczęta</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task1.boys.iq.stats.mean}}</td><td>{{task1.girls.iq.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task1.boys.iq.stats.median}}</td><td>{{task1.girls.iq.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task1.boys.iq.stats.min}}</td><td>{{task1.girls.iq.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task1.boys.iq.stats.max}}</td><td>{{task1.girls.iq.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task1.boys.iq.stats.q1}}</td><td>{{task1.girls.iq.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task1.boys.iq.stats.q3}}</td><td>{{task1.girls.iq.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja</strong></td><td>{{task1.boys.iq.stats.var}}</td><td>{{task1.girls.iq.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task1.boys.iq.stats.std}}</td><td>{{task1.girls.iq.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task1.boys.iq.stats.cv}}%</td><td>{{task1.girls.iq.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task1.boys.iq.plots.hist_path}}" alt="Histogram IQ chłopcy">
+    <img src="{{task1.boys.iq.plots.boxplot_path}}" alt="Boxplot IQ chłopcy">
+</div>
+<div class="flex-container">
+    <img src="{{task1.girls.iq.plots.hist_path}}" alt="Histogram IQ dziewczęta">
+    <img src="{{task1.girls.iq.plots.boxplot_path}}" alt="Boxplot IQ dziewczęta">
+</div>
+
+<div class="page-break"></div>
+
+<h3>Średnia ocen (ŚrOc)</h3>
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Chłopcy</th>
+        <th>Dziewczęta</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task1.boys.sroc.stats.mean}}</td><td>{{task1.girls.sroc.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task1.boys.sroc.stats.median}}</td><td>{{task1.girls.sroc.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task1.boys.sroc.stats.min}}</td><td>{{task1.girls.sroc.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task1.boys.sroc.stats.max}}</td><td>{{task1.girls.sroc.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task1.boys.sroc.stats.q1}}</td><td>{{task1.girls.sroc.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task1.boys.sroc.stats.q3}}</td><td>{{task1.girls.sroc.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja</strong></td><td>{{task1.boys.sroc.stats.var}}</td><td>{{task1.girls.sroc.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task1.boys.sroc.stats.std}}</td><td>{{task1.girls.sroc.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task1.boys.sroc.stats.cv}}%</td><td>{{task1.girls.sroc.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task1.boys.sroc.plots.hist_path}}" alt="Histogram ŚrOc chłopcy">
+    <img src="{{task1.boys.sroc.plots.boxplot_path}}" alt="Boxplot ŚrOc chłopcy">
+</div>
+<div class="flex-container">
+    <img src="{{task1.girls.sroc.plots.hist_path}}" alt="Histogram ŚrOc dziewczęta">
+    <img src="{{task1.girls.sroc.plots.boxplot_path}}" alt="Boxplot ŚrOc dziewczęta">
+</div>
+
+<div class="page-break"></div>
+
+<h3>Punktacja psychologiczna (PH)</h3>
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Chłopcy</th>
+        <th>Dziewczęta</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task1.boys.ph.stats.mean}}</td><td>{{task1.girls.ph.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task1.boys.ph.stats.median}}</td><td>{{task1.girls.ph.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task1.boys.ph.stats.min}}</td><td>{{task1.girls.ph.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task1.boys.ph.stats.max}}</td><td>{{task1.girls.ph.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task1.boys.ph.stats.q1}}</td><td>{{task1.girls.ph.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task1.boys.ph.stats.q3}}</td><td>{{task1.girls.ph.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja</strong></td><td>{{task1.boys.ph.stats.var}}</td><td>{{task1.girls.ph.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task1.boys.ph.stats.std}}</td><td>{{task1.girls.ph.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task1.boys.ph.stats.cv}}%</td><td>{{task1.girls.ph.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task1.boys.ph.plots.hist_path}}" alt="Histogram PH chłopcy">
+    <img src="{{task1.boys.ph.plots.boxplot_path}}" alt="Boxplot PH chłopcy">
+</div>
+<div class="flex-container">
+    <img src="{{task1.girls.ph.plots.hist_path}}" alt="Histogram PH dziewczęta">
+    <img src="{{task1.girls.ph.plots.boxplot_path}}" alt="Boxplot PH dziewczęta">
+</div>
+
+<div class="page-break"></div>
+
+<h3>Wykresy porównawcze</h3>
+<img src="{{task1.compare.boxplot_iq_gender_path}}" class="img-full" alt="Porównanie IQ" style="width: 60%;">
+<img src="{{task1.compare.boxplot_sroc_gender_path}}" class="img-full" alt="Porównanie ŚrOc" style="width: 60%;">
+<img src="{{task1.compare.boxplot_ph_gender_path}}" class="img-full" alt="Porównanie PH" style="width: 60%;">
+
+<div class="page-break"></div>
+
+<blockquote>
+    <strong>Wnioski z porównania chłopców i dziewcząt (Zad. 1c):</strong><br>
+    <em>
+        Na podstawie obliczonych statystyk oraz wykresów można zauważyć kilka różnic między grupą chłopców i dziewcząt.
+        W przypadku <strong>IQ</strong> wyższe wartości średniej i mediany uzyskali <strong>chłopcy</strong>
+        (średnia: <strong>111.35</strong>, mediana: <strong>111.00</strong>) niż <strong>dziewczęta</strong>
+        (średnia: <strong>105.44</strong>, mediana: <strong>106.00</strong>). Jednocześnie u dziewcząt
+        występuje <strong>większe zróżnicowanie wyników IQ</strong>, o czym świadczą wyższe wartości wariancji,
+        odchylenia standardowego oraz współczynnika zmienności. Boxploty pokazują ponadto, że w obu grupach
+        występują pojedyncze niższe obserwacje odstające, przy czym u dziewcząt rozkład jest bardziej rozproszony.
+        <br><br>
+        W przypadku <strong>średniej ocen (ŚrOc)</strong> sytuacja jest odwrotna - nieco wyższą średnią
+        uzyskały <strong>dziewczęta</strong> (<strong>7.68</strong>) niż <strong>chłopcy</strong>
+        (<strong>7.28</strong>). Mediany obu grup są jednak bardzo zbliżone
+        (<strong>7.83</strong> dla dziewcząt i <strong>7.88</strong> dla chłopców), co oznacza, że typowy poziom ocen
+        jest podobny, lecz w grupie chłopców pojawia się większy rozrzut wyników. Potwierdzają to wyraźnie
+        większe wartości wariancji, odchylenia standardowego i współczynnika zmienności u chłopców.
+        Dodatkowo u chłopców występuje bardzo niska wartość minimalna (<strong>0.53</strong>), która może być
+        obserwacją odstającą i obniżać średnią tej grupy.
+        <br><br>
+        W przypadku <strong>punktacji psychologicznej (PH)</strong> różnice między grupami są niewielkie.
+        Chłopcy osiągnęli nieco wyższą średnią (<strong>57.85</strong>) niż dziewczęta
+        (<strong>55.69</strong>), natomiast mediany są bardzo podobne
+        (<strong>59.00</strong> i <strong>60.00</strong>). Zmienność wyników PH w obu grupach jest zbliżona,
+        choć minimalnie większa u dziewcząt. Na wykresach ramkowych widać również pojedyncze niższe obserwacje
+        odstające w obu grupach, ale ogólny rozkład punktacji psychologicznej jest podobny.
+        <br><br>
+        Podsumowując, <strong>chłopcy uzyskali wyższe wyniki IQ</strong>, <strong>dziewczęta osiągnęły nieco wyższą średnią ocen</strong>,
+        natomiast w przypadku <strong>PH różnice są niewielkie</strong>. Największe różnice między grupami dotyczą więc
+        poziomu IQ oraz zmienności wyników szkolnych.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Wpływ liczby klas na histogram (Zad. 1d)</h2>
+
+<h3>Zbyt mało klas (liczba klas: {{task1.bins_demo.bins_few}})</h3>
+<p>
+    Zbyt mała liczba klas prowadzi do nadmiernego uproszczenia wykresu. Histogram traci szczegóły,
+    przez co rzeczywisty kształt rozkładu staje się słabiej widoczny.
+</p>
+<img src="{{task1.bins_demo.hist_iq_few_path}}" class="img-full" alt="Histogram IQ - mało klas">
+
+<h3>Optymalna liczba klas (liczba klas: {{task1.bins_demo.bins_opt}})</h3>
+<p>
+    W tej wersji wykorzystano liczbę klas wyznaczoną na podstawie reguły Sturgesa.
+    Taki dobór pozwala zachować równowagę pomiędzy czytelnością wykresu a ilością
+    informacji o rozkładzie danych.
+</p>
+<img src="{{task1.bins_demo.hist_iq_opt_path}}" class="img-full" alt="Histogram IQ - optymalnie">
+
+<div class="page-break"></div>
+
+<h3>Zbyt dużo klas (liczba klas: {{task1.bins_demo.bins_many}})</h3>
+<p>
+    Zbyt duża liczba klas powoduje „poszarpanie” histogramu i zbyt dużą ilość słupków.
+    Na wykresie pojawiają się przypadkowe wahania oraz puste luki, które utrudniają ocenę
+    rzeczywistego rozkładu zmiennej.
+</p>
+<img src="{{task1.bins_demo.hist_iq_many_path}}" class="img-full" alt="Histogram IQ - dużo klas">
+
+<blockquote>
+    <strong>Wniosek (Zad. 1d):</strong><br>
+    <em>
+        Wybór liczby klas ma istotny wpływ na interpretację histogramu. Zbyt mała liczba klas
+        nadmiernie upraszcza obraz danych, natomiast zbyt duża eksponuje przypadkowy szum i utrudnia
+        odczytanie ogólnych tendencji. Spośród przedstawionych wariantów najbardziej użyteczny jest
+        histogram z liczbą klas wyznaczoną według reguły Sturgesa, ponieważ najlepiej zachowuje
+        równowagę między przejrzystością wykresu a dokładnością odwzorowania rozkładu danych.
+    </em>
+</blockquote>

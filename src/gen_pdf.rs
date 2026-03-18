@@ -2,55 +2,54 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use std::fs;
 
+#[derive(Serialize, Clone)]
+pub struct VariableStats {
+    pub mean: String,
+    pub median: String,
+    pub min: String,
+    pub max: String,
+    pub q1: String,
+    pub q3: String,
+    pub var: String,
+    pub std: String,
+    pub cv: String,
+}
 
+#[derive(Serialize, Clone)]
+pub struct VariablePlots {
+    pub hist_path: String,
+    pub boxplot_path: String,
+}
 
-#[derive(Serialize)]
-pub struct ReportData {
-    pub n_total: usize,
-    pub sroc_mean: String,
-    pub sroc_median: String,
-    pub sroc_min: String,
-    pub sroc_max: String,
-    pub sroc_q1: String,
-    pub sroc_q3: String,
-    pub sroc_var: String,
-    pub sroc_std: String,
-    pub sroc_cv: String,
-    pub iq_mean: String,
-    pub iq_median: String,
-    pub iq_min: String,
-    pub iq_max: String,
-    pub iq_q1: String,
-    pub iq_q3: String,
-    pub iq_var: String,
-    pub iq_std: String,
-    pub iq_cv: String,
-    pub ph_mean: String,
-    pub ph_median: String,
-    pub ph_min: String,
-    pub ph_max: String,
-    pub ph_q1: String,
-    pub ph_q3: String,
-    pub ph_var: String,
-    pub ph_std: String,
-    pub ph_cv: String,
-    pub hist_iq_path: String,
-    pub boxplot_iq_path: String,
-    pub hist_sroc_path: String,
-    pub boxplot_sroc_path: String,
-    pub hist_ph_path: String,
-    pub boxplot_ph_path: String,
-    pub iq_mean_b: String,
-    pub iq_mean_g: String,
-    pub sroc_mean_b: String,
-    pub sroc_mean_g: String,
-    pub iq_median_b: String,
-    pub iq_median_g: String,
-    pub sroc_median_b: String,
-    pub sroc_median_g: String,
+#[derive(Serialize, Clone)]
+pub struct VariableSection {
+    pub stats: VariableStats,
+    pub plots: VariablePlots,
+}
+
+#[derive(Serialize, Clone)]
+pub struct OverallSection {
+    pub iq: VariableSection,
+    pub sroc: VariableSection,
+    pub ph: VariableSection,
+}
+
+#[derive(Serialize, Clone)]
+pub struct GenderSection {
+    pub iq: VariableSection,
+    pub sroc: VariableSection,
+    pub ph: VariableSection,
+}
+
+#[derive(Serialize, Clone)]
+pub struct ComparePlots {
     pub boxplot_iq_gender_path: String,
     pub boxplot_sroc_gender_path: String,
     pub boxplot_ph_gender_path: String,
+}
+
+#[derive(Serialize, Clone)]
+pub struct HistogramBinsSection {
     pub bins_few: usize,
     pub bins_opt: usize,
     pub bins_many: usize,
@@ -59,6 +58,69 @@ pub struct ReportData {
     pub hist_iq_many_path: String,
 }
 
+#[derive(Serialize, Clone)]
+pub struct Task1Section {
+    pub n_total: usize,
+    pub n_boys: usize,
+    pub n_girls: usize,
+    pub overall: OverallSection,
+    pub boys: GenderSection,
+    pub girls: GenderSection,
+    pub compare: ComparePlots,
+    pub bins_demo: HistogramBinsSection,
+}
+
+#[derive(Serialize, Clone)]
+pub struct GroupStatsRow {
+    pub label: String,
+    pub mean: String,
+    pub median: String,
+    pub min: String,
+    pub max: String,
+    pub q1: String,
+    pub q3: String,
+    pub std: String,
+    pub cv: String,
+}
+
+#[derive(Serialize, Clone)]
+pub struct Task2ASection {
+    pub n_total: usize,
+    pub income: VariableSection,
+}
+
+#[derive(Serialize, Clone)]
+pub struct Task2BSection {
+    pub rows: Vec<GroupStatsRow>,
+    pub boxplot_path: String,
+}
+
+#[derive(Serialize, Clone)]
+pub struct Task2CSection {
+    pub men: VariableSection,
+    pub women: VariableSection,
+    pub compare_boxplot_path: String,
+}
+
+#[derive(Serialize, Clone)]
+pub struct Task2DSection {
+    pub mean: String,
+    pub median: String,
+}
+
+#[derive(Serialize, Clone)]
+pub struct Task2Section {
+    pub a: Task2ASection,
+    pub b: Task2BSection,
+    pub c: Task2CSection,
+    pub d: Task2DSection,
+}
+
+#[derive(Serialize)]
+pub struct ReportData {
+    pub task1: Task1Section,
+    pub task2: Task2Section,
+}
 
 pub fn format_f64(value: f64) -> String {
     if value.is_nan() {
@@ -68,27 +130,23 @@ pub fn format_f64(value: f64) -> String {
     }
 }
 
-
-pub fn generate_markdown(
-    data: &ReportData,
-    template_path: &str,
+pub fn generate_markdown<T: Serialize>(
+    data: &T,
+    base_template_path: &str,
     output_path: &str,
 ) -> Result<(), Box<dyn std::error::Error>> {
-
-    let template_str = fs::read_to_string(template_path)?;
-
+    let base_template = fs::read_to_string(base_template_path)?;
+    let task1_template = fs::read_to_string("templates/task1.html.hbs")?;
+    let task2_template = fs::read_to_string("templates/task2.html.hbs")?;
 
     let mut reg = Handlebars::new();
-
-
     reg.register_escape_fn(handlebars::no_escape);
 
-    reg.register_template_string("raport_template", template_str)?;
+    reg.register_template_string("base", base_template)?;
+    reg.register_partial("task1", task1_template)?;
+    reg.register_partial("task2", task2_template)?;
 
-
-    let rendered = reg.render("raport_template", data)?;
-
-
+    let rendered = reg.render("base", data)?;
     fs::write(output_path, rendered)?;
 
     Ok(())

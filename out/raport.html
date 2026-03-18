@@ -6,131 +6,803 @@
     <style>
         @page { margin: 1.5cm; size: A4 portrait; }
 
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; color: #2c3e50; line-height: 1.6; }
-        h1 { text-align: center; color: #1a252f; border-bottom: 2px solid #aa82c8; padding-bottom: 10px; font-size: 1.8em; }
-        h2 { color: #2c3e50; margin-top: 30px; border-bottom: 1px solid #ecf0f1; padding-bottom: 5px; font-size: 1.4em;}
-        h3 { color: #34495e; margin-top: 20px; font-size: 1.1em;}
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 14px;
+        }
 
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        th, td { border: 1px solid #e0e0e0; padding: 10px; text-align: center; }
-        th { background-color: #f8f9fa; font-weight: bold; }
-        tr:nth-child(even) { background-color: #fafbfc; }
+        h1 {
+            text-align: center;
+            color: #1a252f;
+            border-bottom: 2px solid #aa82c8;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 24px;
+        }
 
-        .flex-container { display: flex; justify-content: space-between; margin-bottom: 20px; }
-        .flex-container img { width: 49%; border-radius: 6px; border: 1px solid #eee; box-shadow: 1px 2px 6px rgba(0,0,0,0.1); }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 5px;
+            font-size: 1.4em;
+        }
 
-        .img-full { width: 75%; display: block; margin: 10px auto 25px auto; border-radius: 6px; box-shadow: 1px 2px 6px rgba(0,0,0,0.1); }
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
 
-        blockquote { border-left: 5px solid #aa82c8; background: #fdfbfd; padding: 15px; margin: 20px 0; color: #555; }
-        blockquote em { color: #666; }
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
 
-        .page-break { page-break-before: always; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flex-container img {
+            width: 49%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .img-full {
+            width: 75%;
+            display: block;
+            margin: 10px auto 25px auto;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .plot-caption {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        blockquote {
+            border-left: 5px solid #aa82c8;
+            background: #fdfbfd;
+            padding: 15px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        blockquote em {
+            color: #666;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .small-note {
+            font-size: 12px;
+        }
+
+        .section-text {
+            margin: 10px 0 14px 0;
+        }
+
+        .single-plot {
+            margin: 15px 0 22px 0;
+        }
+
+        .conclusion-title {
+            font-weight: bold;
+        }
+
+        .plot-pair {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+        }
+
+        .plot-item {
+            width: 49%;
+            text-align: center;
+        }
+
+        .plot-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .plot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2%;
+            margin-bottom: 20px;
+        }
+
+        .plot-grid.columns-2 .plot-grid-item {
+            width: 49%;
+        }
+
+        .plot-grid.columns-3 .plot-grid-item {
+            width: 32%;
+        }
+
+        .plot-grid.columns-4 .plot-grid-item {
+            width: 23.5%;
+        }
+
+        .plot-grid-item img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .plot-grid-item .plot-caption {
+            margin-top: 8px;
+            margin-bottom: 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-<h1>Lista nr 1, Zad. 1</h1>
+<h1>Raport Statystyczny</h1>
 
-<h2>1. Podstawowe Statystyki Opisowe (Ogółem)</h2>
-<p>Badana próba liczy <strong>78</strong> uczniów siódmej klasy. Poniższa tabela prezentuje zestawienie podstawowych statystyk dla zmiennych ilościowych: Średniej Ocen (ŚrOc), IQ oraz punktacji w teście psychologicznym (PH).</p>
 
-<table>
-    <tr>
-        <th>Statystyka</th><th>ŚrOc</th><th>IQ</th><th>PH</th>
-    </tr>
-    <tr><td><strong>Średnia</strong></td><td>7.45</td><td>108.92</td><td>56.96</td></tr>
-    <tr><td><strong>Mediana</strong></td><td>7.83</td><td>110.00</td><td>59.50</td></tr>
-    <tr><td><strong>Minimum</strong></td><td>0.53</td><td>72.00</td><td>20.00</td></tr>
-    <tr><td><strong>Maksimum</strong></td><td>10.76</td><td>136.00</td><td>80.00</td></tr>
-    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>6.23</td><td>103.00</td><td>51.00</td></tr>
-    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>9.00</td><td>118.00</td><td>66.00</td></tr>
-    <tr><td><strong>Wariancja (z próby)</strong></td><td>4.41</td><td>173.47</td><td>154.06</td></tr>
-    <tr><td><strong>Odchylenie standardowe</strong></td><td>2.10</td><td>13.17</td><td>12.41</td></tr>
-    <tr><td><strong>Wsp. zmienności (CV)</strong></td><td>28.20%</td><td>12.09%</td><td>21.79%</td></tr>
-</table>
+    <p class="plot-caption">Autor: Łukasz Stodółka</p>
 
-<blockquote>
-    <strong>Wnioski z obliczonych statystyk (Zad. 1a):</strong><br>
-    <em>[Bedą wnioski kiedyś. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
-</blockquote>
 
-<div class="page-break"></div>
+    <h2>Zadanie 1(a): średnia z n rzutów kostką</h2>
 
-<h2>2. Wizualizacja Danych (Histogramy i Boxploty)</h2>
-<p>Poniższe wykresy prezentują rozkłady badanych cech. Dla zachowania czytelności, obok histogramu prezentującego rozkład częstości, umieszczono odpowiadający mu wykres ramkowy.</p>
 
-<h3>Zmienna: Rozkład IQ</h3>
-<div class="flex-container">
-    <img src="hist_iq.png" alt="Histogram IQ">
-    <img src="boxplot_iq.png" alt="Boxplot IQ">
-</div>
+            <p class="section-text">W tej części zasymulowano n-krotny rzut uczciwą sześcienną kostką dla różnych wartości n oraz wyznaczono średnią próbki.</p>
 
-<h3>Zmienna: Średnia Ocen (ŚrOc)</h3>
-<div class="flex-container">
-    <img src="hist_sroc.png" alt="Histogram ŚrOc">
-    <img src="boxplot_sroc.png" alt="Boxplot ŚrOc">
-</div>
 
-<h3>Zmienna: Punktacja Psychologiczna (PH)</h3>
-<div class="flex-container">
-    <img src="hist_ph.png" alt="Histogram PH">
-    <img src="boxplot_ph.png" alt="Boxplot PH">
-</div>
 
-<blockquote>
-    <strong>Wnioski na podstawie wykresów (Zad. 1b):</strong><br>
-    <em>[Kiedyś będą wnioski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
-</blockquote>
 
-<div class="page-break"></div>
 
-<h2>3. Porównanie: Chłopcy vs Dziewczęta</h2>
-<p>Poniżej zestawiono wyniki z podziałem na płeć badanych uczniów.</p>
 
-<table>
-    <tr>
-        <th>Statystyka</th><th>IQ (Chłopcy)</th><th>IQ (Dziewczęta)</th><th>ŚrOc (Chłopcy)</th><th>ŚrOc (Dziewczęta)</th>
-    </tr>
-    <tr><td><strong>Średnia</strong></td><td>111.35</td><td>105.44</td><td>7.28</td><td>7.68</td></tr>
-    <tr><td><strong>Mediana</strong></td><td>111.00</td><td>106.00</td><td>7.88</td><td>7.83</td></tr>
-</table>
 
-<h3>Wykresy Porównawcze</h3>
-<div class="flex-container">
-    <img src="boxplot_iq_gender.png" alt="Porównanie IQ">
-    <img src="boxplot_sroc_gender.png" alt="Porównanie ŚrOc">
-</div>
 
-<img src="boxplot_ph_gender.png" class="img-full" alt="Porównanie PH" style="width: 60%;">
 
-<blockquote>
-    <strong>Porównanie wyników (Zad. 1c):</strong><br>
-    <em>[Będzie porównanie. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
-</blockquote>
 
-<div class="page-break"></div>
 
-<h2>4. Wpływ liczby klas na histogram (Zad. 1d)</h2>
-<p>Analiza dla wybranej zmiennej (<strong>IQ</strong>) przy różnej szerokości przedziałów klasowych.</p>
 
-<h3>Zbyt mało klas (Liczba klas: 3)</h3>
-<p>Zamazuje to strukturę danych, tracimy cenne informacje o rzeczywistym kształcie rozkładu.</p>
-<img src="hist_iq_few.png" class="img-full" alt="Histogram - mało klas">
+            <table>
+                <tr>
+                        <th>n</th>
+                        <th>Średnia próbki</th>
+                </tr>
+                    <tr>
+                            <td>5</td>
+                            <td>4.0000</td>
+                    </tr>
+                    <tr>
+                            <td>10</td>
+                            <td>2.6000</td>
+                    </tr>
+                    <tr>
+                            <td>15</td>
+                            <td>3.1333</td>
+                    </tr>
+                    <tr>
+                            <td>20</td>
+                            <td>3.5500</td>
+                    </tr>
+                    <tr>
+                            <td>50</td>
+                            <td>3.5200</td>
+                    </tr>
+                    <tr>
+                            <td>100</td>
+                            <td>3.3700</td>
+                    </tr>
+            </table>
 
-<h3>Optymalna liczba klas (Liczba klas: 8)</h3>
-<p>Wyliczona na podstawie Reguły Sturgesa. Najlepiej oddaje charakterystykę badanej grupy.</p>
-<img src="hist_iq_opt.png" class="img-full" alt="Histogram - optymalnie">
 
-<div class="page-break"></div>
 
-<h3>Zbyt dużo klas (Liczba klas: 30)</h3>
-<p>Powoduje poszarpanie wykresu (tzw. szum informacyjny), pojawiają się puste luki między słupkami.</p>
-<img src="hist_iq_many.png" class="img-full" alt="Histogram - dużo klas">
 
-<blockquote>
-    <strong>Wniosek:</strong><br>
-    <em>[Kiedyś będą wnioski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum]</em>
-</blockquote>
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Dla małych wartości n średnia próbki może się wyraźnie wahać, natomiast przy większych próbach powinna stabilizować się wokół wartości oczekiwanej.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 1(b): wykres zależności średniej próbki od n</h2>
+
+
+            <p class="section-text">Na wykresie pokazano, jak zmienia się średnia próbki w zależności od liczby rzutów. Pozioma linia odniesienia odpowiada teoretycznej wartości oczekiwanej dla uczciwej kostki, czyli 3.5.</p>
+
+
+
+
+
+
+
+
+
+            <div class="single-plot">
+                <img src="zad1b_kostka_zbieznosc.png" class="img-full" alt="Zbieżność średniej próbki dla rzutu kostką">
+                <p class="plot-caption"><em>Zbieżność średniej próbki dla rzutu kostką</em></p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Wraz ze wzrostem liczby rzutów średnia próbki zbliża się do 3.5, co jest zgodne z prawem wielkich liczb.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 1(c): liczba orłów w 100 rzutach monetą</h2>
+
+
+            <p class="section-text">W tej części 200 razy powtórzono eksperyment polegający na wykonaniu 100 rzutów uczciwą monetą. W każdym powtórzeniu zliczano liczbę uzyskanych orłów.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>Statystyka</th>
+                        <th>Wartość</th>
+                </tr>
+                    <tr>
+                            <td>Średnia</td>
+                            <td>50.52</td>
+                    </tr>
+                    <tr>
+                            <td>Mediana</td>
+                            <td>50.00</td>
+                    </tr>
+                    <tr>
+                            <td>Minimum</td>
+                            <td>34.00</td>
+                    </tr>
+                    <tr>
+                            <td>Maksimum</td>
+                            <td>63.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q1</td>
+                            <td>47.00</td>
+                    </tr>
+                    <tr>
+                            <td>Q3</td>
+                            <td>54.00</td>
+                    </tr>
+                    <tr>
+                            <td>Wariancja</td>
+                            <td>21.99</td>
+                    </tr>
+                    <tr>
+                            <td>Odchylenie std.</td>
+                            <td>4.69</td>
+                    </tr>
+                    <tr>
+                            <td>CV (%)</td>
+                            <td>9.28</td>
+                    </tr>
+            </table>
+
+
+
+
+
+
+            <div class="plot-pair">
+                <div class="plot-item">
+                    <img src="hist_zad1c_moneta.png" alt="Rozkład Liczba orłów w 100 rzutach monetą">
+                    <p class="plot-caption"><em>Rozkład Liczba orłów w 100 rzutach monetą</em></p>
+                </div>
+
+                <div class="plot-item">
+                    <img src="boxplot_zad1c_moneta.png" alt="Wykres ramkowy Liczba orłów w 100 rzutach monetą">
+                    <p class="plot-caption"><em>Wykres ramkowy Liczba orłów w 100 rzutach monetą</em></p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Rozkład liczby orłów koncentruje się wokół wartości około 50, co odpowiada intuicji dla uczciwej monety.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 2(a): średnie próbki dla Exp(2)</h2>
+
+
+            <p class="section-text">Wygenerowano próbki z rozkładu wykładniczego Exp(2) dla n = 5, 10, 50, 100 i obliczono średnią próbki. Dla tego rozkładu wartość oczekiwana wynosi 1/2, a wariancja średniej próbki wynosi 1/(4n).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>n</th>
+                        <th>Średnia próbki</th>
+                        <th>μ_n</th>
+                        <th>σ²_n</th>
+                </tr>
+                    <tr>
+                            <td>5</td>
+                            <td>0.2351</td>
+                            <td>0.5000</td>
+                            <td>0.0500</td>
+                    </tr>
+                    <tr>
+                            <td>10</td>
+                            <td>0.3764</td>
+                            <td>0.5000</td>
+                            <td>0.0250</td>
+                    </tr>
+                    <tr>
+                            <td>50</td>
+                            <td>0.4228</td>
+                            <td>0.5000</td>
+                            <td>0.0050</td>
+                    </tr>
+                    <tr>
+                            <td>100</td>
+                            <td>0.4511</td>
+                            <td>0.5000</td>
+                            <td>0.0025</td>
+                    </tr>
+            </table>
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Empiryczne średnie są zbliżone do wartości teoretycznej 0.5, a wariancja średniej maleje wraz ze wzrostem liczności próby.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 2(b): histogramy standaryzowanej średniej dla Exp(2)</h2>
+
+
+            <p class="section-text">Dla każdego n doświadczenie powtórzono 200 razy i narysowano histogram standaryzowanej średniej. Na wykres nałożono gęstość rozkładu normalnego N(0,1).</p>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="zad2b_exp_n5.png" alt="Exp(2): histogram standaryzowanej średniej, n=5">
+                        <p class="plot-caption"><em>Exp(2): histogram standaryzowanej średniej, n=5</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2b_exp_n10.png" alt="Exp(2): histogram standaryzowanej średniej, n=10">
+                        <p class="plot-caption"><em>Exp(2): histogram standaryzowanej średniej, n=10</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2b_exp_n50.png" alt="Exp(2): histogram standaryzowanej średniej, n=50">
+                        <p class="plot-caption"><em>Exp(2): histogram standaryzowanej średniej, n=50</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2b_exp_n100.png" alt="Exp(2): histogram standaryzowanej średniej, n=100">
+                        <p class="plot-caption"><em>Exp(2): histogram standaryzowanej średniej, n=100</em></p>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Wraz ze wzrostem n rozkład standaryzowanej średniej coraz lepiej przybliża rozkład normalny, co potwierdza centralne twierdzenie graniczne.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 2(c): średnie próbki i histogramy dla Pois(2)</h2>
+
+
+            <p class="section-text">Powtórzono analizę z punktów (a) i (b) dla rozkładu Poissona z parametrem 2. W tym przypadku wartość oczekiwana wynosi 2, a wariancja średniej próbki wynosi 2/n.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>n</th>
+                        <th>Średnia próbki</th>
+                        <th>μ_n</th>
+                        <th>σ²_n</th>
+                </tr>
+                    <tr>
+                            <td>5</td>
+                            <td>2.8000</td>
+                            <td>2.0000</td>
+                            <td>0.4000</td>
+                    </tr>
+                    <tr>
+                            <td>10</td>
+                            <td>1.7000</td>
+                            <td>2.0000</td>
+                            <td>0.2000</td>
+                    </tr>
+                    <tr>
+                            <td>50</td>
+                            <td>1.9600</td>
+                            <td>2.0000</td>
+                            <td>0.0400</td>
+                    </tr>
+                    <tr>
+                            <td>100</td>
+                            <td>2.0500</td>
+                            <td>2.0000</td>
+                            <td>0.0200</td>
+                    </tr>
+            </table>
+
+
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="zad2c_pois_n5.png" alt="Pois(2): histogram standaryzowanej średniej, n=5">
+                        <p class="plot-caption"><em>Pois(2): histogram standaryzowanej średniej, n=5</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2c_pois_n10.png" alt="Pois(2): histogram standaryzowanej średniej, n=10">
+                        <p class="plot-caption"><em>Pois(2): histogram standaryzowanej średniej, n=10</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2c_pois_n50.png" alt="Pois(2): histogram standaryzowanej średniej, n=50">
+                        <p class="plot-caption"><em>Pois(2): histogram standaryzowanej średniej, n=50</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad2c_pois_n100.png" alt="Pois(2): histogram standaryzowanej średniej, n=100">
+                        <p class="plot-caption"><em>Pois(2): histogram standaryzowanej średniej, n=100</em></p>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Również dla rozkładu Poissona standaryzowana średnia zbiega rozkładem do N(0,1) wraz ze wzrostem n.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 3(a): średnia populacji a średnie z prób losowych</h2>
+
+
+            <p class="section-text">Dane ze zbioru income.dat potraktowano jako pełną populację. Dla kilku rozmiarów próby porównano średnią populacji ze średnimi wybranych prób losowych.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+            <table>
+                <tr>
+                        <th>n</th>
+                        <th>Średnia próby</th>
+                        <th>Średnia populacji</th>
+                        <th>Różnica</th>
+                </tr>
+                    <tr>
+                            <td>10</td>
+                            <td>26860.2000</td>
+                            <td>37864.6095</td>
+                            <td>11004.4095</td>
+                    </tr>
+                    <tr>
+                            <td>50</td>
+                            <td>54382.6000</td>
+                            <td>37864.6095</td>
+                            <td>16517.9905</td>
+                    </tr>
+                    <tr>
+                            <td>100</td>
+                            <td>36127.2700</td>
+                            <td>37864.6095</td>
+                            <td>1737.3395</td>
+                    </tr>
+                    <tr>
+                            <td>500</td>
+                            <td>38421.4180</td>
+                            <td>37864.6095</td>
+                            <td>556.8085</td>
+                    </tr>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Wraz ze wzrostem liczności próby średnia próbki zwykle lepiej przybliża średnią całej populacji, co stanowi ilustrację prawa wielkich liczb.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 3(b): histogram populacji i histogramy prób</h2>
+
+
+            <p class="section-text">Porównano histogram zarobków całej populacji z histogramami kilku prób losowych o różnych rozmiarach.</p>
+
+
+
+
+
+
+
+
+
+            <div class="single-plot">
+                <img src="zad3_population_hist.png" class="img-full" alt="Histogram zarobków całej populacji">
+                <p class="plot-caption"><em>Histogram zarobków całej populacji</em></p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="zad3_sample_hist_10.png" alt="Histogram zarobków próby, n=10">
+                        <p class="plot-caption"><em>Histogram zarobków próby, n=10</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad3_sample_hist_50.png" alt="Histogram zarobków próby, n=50">
+                        <p class="plot-caption"><em>Histogram zarobków próby, n=50</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad3_sample_hist_100.png" alt="Histogram zarobków próby, n=100">
+                        <p class="plot-caption"><em>Histogram zarobków próby, n=100</em></p>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Dla małych prób histogram może znacząco odbiegać od histogramu populacji, natomiast przy większych próbach kształt rozkładu staje się coraz bardziej zbliżony do rozkładu całej populacji.</em>
+            </blockquote>
+
+
+    <h2>Zadanie 3(c): histogramy średnich próbkowych</h2>
+
+
+            <p class="section-text">Dla różnych liczności próby wielokrotnie losowano próbki i obliczano ich średnie. Następnie zbadano rozkład średnich próbkowych.</p>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="plot-grid columns-2">
+                    <div class="plot-grid-item">
+                        <img src="zad3_mean_hist_n10.png" alt="Histogram średnich próbkowych, n=10">
+                        <p class="plot-caption"><em>Histogram średnich próbkowych, n=10</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad3_mean_hist_n50.png" alt="Histogram średnich próbkowych, n=50">
+                        <p class="plot-caption"><em>Histogram średnich próbkowych, n=50</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad3_mean_hist_n100.png" alt="Histogram średnich próbkowych, n=100">
+                        <p class="plot-caption"><em>Histogram średnich próbkowych, n=100</em></p>
+                    </div>
+                    <div class="plot-grid-item">
+                        <img src="zad3_mean_hist_n500.png" alt="Histogram średnich próbkowych, n=500">
+                        <p class="plot-caption"><em>Histogram średnich próbkowych, n=500</em></p>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <blockquote>
+                <span class="conclusion-title">Wniosek:</span><br>
+                <em>Rozkład średnich próbkowych staje się coraz bardziej skupiony wokół średniej populacji wraz ze wzrostem n. Jest to zgodne z faktem, że odchylenie standardowe średniej maleje jak σ/√n.</em>
+            </blockquote>
+
+
 
 </body>
 </html>

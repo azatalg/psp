@@ -1,0 +1,192 @@
+<h2>Struktura zarobków mieszkańców USA w roku 2000 (Zad. 2a)</h2>
+<p>
+    Badana próba zawiera <strong>{{task2.a.n_total}}</strong> obserwacji.
+    Analizie poddano roczne zarobki respondentów w dolarach amerykańskich.
+</p>
+
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Zarobki</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task2.a.income.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task2.a.income.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task2.a.income.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task2.a.income.stats.max}}</td></tr
+
+    >
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task2.a.income.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task2.a.income.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja (z próby)</strong></td><td>{{task2.a.income.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task2.a.income.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task2.a.income.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task2.a.income.plots.hist_path}}" alt="Histogram zarobków">
+    <img src="{{task2.a.income.plots.boxplot_path}}" alt="Boxplot zarobków">
+</div>
+<div class="page-break"></div>
+
+<blockquote>
+    <strong>Wnioski (Zad. 2a):</strong><br>
+    <em>
+        Rozkład zarobków ma charakter <strong>asymetryczny prawostronnie czyli skośny prawostronnie</strong>, co oznacza,
+        że większość osób osiąga relatywnie niższe dochody, natomiast niewielka grupa uzyskuje
+        bardzo wysokie zarobki. W konsekwencji <strong>średnia jest większa od mediany</strong>,
+        co wskazuje na wpływ wysokich wartości odstających.
+        Histogram ujawnia koncentrację obserwacji w dolnych przedziałach oraz długi ogon po stronie wyższych dochodów.
+        W danych mogą występować również <strong>ujemne wartości dochodów</strong>, które mogą wynikać
+        np. ze strat działalności gospodarczej lub specyfiki sposobu raportowania dochodów.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Porównanie zarobków w zależności od poziomu wykształcenia (Zad. 2b)</h2>
+<p>
+    W tej części porównano poziom zarobków w sześciu grupach wykształcenia:
+    od wykształcenia podstawowego do wyższego magisterskiego.
+</p>
+
+<table>
+    <tr>
+        <th>Poziom wykształcenia</th>
+        <th>Średnia</th>
+        <th>Mediana</th>
+        <th>Minimum</th>
+        <th>Maksimum</th>
+        <th>Q1</th>
+        <th>Q3</th>
+        <th>Odch. std.</th>
+        <th>CV</th>
+    </tr>
+    {{#each task2.b.rows}}
+        <tr>
+            <td><strong>{{label}}</strong></td>
+            <td>{{mean}}</td>
+            <td>{{median}}</td>
+            <td>{{min}}</td>
+            <td>{{max}}</td>
+            <td>{{q1}}</td>
+            <td>{{q3}}</td>
+            <td>{{std}}</td>
+            <td>{{cv}}%</td>
+        </tr>
+    {{/each}}
+</table>
+
+<img src="{{task2.b.boxplot_path}}" class="img-full" alt="Zarobki wg wykształcenia">
+<div class="page-break"></div>
+<blockquote>
+    <strong>Wnioski (Zad. 2b):</strong><br>
+    <em>
+        Zarobki wykazują wyraźną zależność od poziomu wykształcenia.
+        Wraz ze wzrostem poziomu edukacji rosną zarówno średnie,
+        jak i mediany dochodów.
+        Osoby z wykształceniem wyższym osiągają istotnie wyższe dochody
+        niż osoby z niższym poziomem wykształcenia.
+        Jednocześnie w każdej grupie widoczne jest znaczne zróżnicowanie,
+        co oznacza, że wykształcenie nie jest jedynym czynnikiem wpływającym
+        na poziom zarobków.
+        W grupach o wyższym wykształceniu częściej występują również
+        <strong>wartości ekstremalne</strong>, co wskazuje na większe możliwości
+        osiągania bardzo wysokich dochodów.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Porównanie zarobków kobiet i mężczyzn (Zad. 2c)</h2>
+
+<h3>Mężczyźni</h3>
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Zarobki</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task2.c.men.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task2.c.men.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task2.c.men.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task2.c.men.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task2.c.men.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task2.c.men.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja (z próby)</strong></td><td>{{task2.c.men.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task2.c.men.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task2.c.men.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task2.c.men.plots.hist_path}}" alt="Histogram zarobków mężczyźni">
+    <img src="{{task2.c.men.plots.boxplot_path}}" alt="Boxplot zarobków mężczyźni">
+</div>
+<div class="page-break"></div>
+<h3>Kobiety</h3>
+<table>
+    <tr>
+        <th>Statystyka</th>
+        <th>Zarobki</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task2.c.women.stats.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task2.c.women.stats.median}}</td></tr>
+    <tr><td><strong>Minimum</strong></td><td>{{task2.c.women.stats.min}}</td></tr>
+    <tr><td><strong>Maksimum</strong></td><td>{{task2.c.women.stats.max}}</td></tr>
+    <tr><td><strong>Kwartyl dolny (Q1)</strong></td><td>{{task2.c.women.stats.q1}}</td></tr>
+    <tr><td><strong>Kwartyl górny (Q3)</strong></td><td>{{task2.c.women.stats.q3}}</td></tr>
+    <tr><td><strong>Wariancja (z próby)</strong></td><td>{{task2.c.women.stats.var}}</td></tr>
+    <tr><td><strong>Odchylenie standardowe</strong></td><td>{{task2.c.women.stats.std}}</td></tr>
+    <tr><td><strong>Współczynnik zmienności (CV)</strong></td><td>{{task2.c.women.stats.cv}}%</td></tr>
+</table>
+
+<div class="flex-container">
+    <img src="{{task2.c.women.plots.hist_path}}" alt="Histogram zarobków kobiety">
+    <img src="{{task2.c.women.plots.boxplot_path}}" alt="Boxplot zarobków kobiety">
+</div>
+<div class="page-break"></div>
+<img src="{{task2.c.compare_boxplot_path}}" class="img-full" alt="Porównanie zarobków kobiet i mężczyzn">
+<blockquote>
+    <strong>Wnioski (Zad. 2c):</strong><br>
+    <em>
+        Analiza danych wskazuje na różnice w poziomie zarobków
+        między mężczyznami a kobietami.
+        Jedna z grup osiąga wyższe wartości średnie i mediany,
+        jednak na podstawie tych danych nie można jednoznacznie
+        stwierdzić istnienia związku przyczynowego.
+        Różnice te mogą wynikać z wielu czynników,
+        takich jak wykształcenie, sektor zatrudnienia
+        czy struktura rynku pracy.
+        W związku z tym obserwujemy jedynie <strong>korelację</strong>,
+        a nie dowód bezpośredniego wpływu płci na poziom dochodów.
+    </em>
+</blockquote>
+
+<div class="page-break"></div>
+
+<h2>Przeciętny zarobek mieszkańców USA w roku 2000 (Zad. 2d)</h2>
+<p>
+    W celu wyznaczenia „przeciętnego zarobku” można rozważyć różne miary tendencji centralnej.
+    Najczęściej stosowane są <strong>średnia arytmetyczna</strong> oraz <strong>mediana</strong>.
+</p>
+
+<table>
+    <tr>
+        <th>Miara</th>
+        <th>Wartość</th>
+    </tr>
+    <tr><td><strong>Średnia</strong></td><td>{{task2.d.mean}}</td></tr>
+    <tr><td><strong>Mediana</strong></td><td>{{task2.d.median}}</td></tr>
+</table>
+
+<blockquote>
+    <strong>Wnioski (Zad. 2d):</strong><br>
+    <em>
+        Ze względu na silną asymetrię rozkładu zarobków oraz obecność
+        wartości odstających, średnia arytmetyczna nie jest najlepszą miarą
+        „przeciętnego” dochodu.
+        Znacznie lepszą miarą jest <strong>mediana</strong>,
+        ponieważ jest odporna na wpływ skrajnych wartości.
+        Mediana lepiej oddaje typowy poziom dochodu większości populacji,
+        podczas gdy średnia może być zawyżona przez niewielką grupę
+        osób o bardzo wysokich zarobkach.
+    </em>
+</blockquote>
